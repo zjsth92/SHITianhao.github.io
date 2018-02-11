@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Webpack · GitBook</title>
+        <title>React · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="typescript.html" />
+    <link rel="next" href="redux.html" />
     
     
-    <link rel="prev" href="CDN.html" />
+    <link rel="prev" href="rxjs.html" />
     
 
     </head>
@@ -370,7 +370,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2" data-path="webpack.html">
+        <li class="chapter " data-level="4.2" data-path="webpack.html">
             
                 <a href="webpack.html">
             
@@ -422,7 +422,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6" data-path="react.html">
+        <li class="chapter active" data-level="4.6" data-path="react.html">
             
                 <a href="react.html">
             
@@ -583,7 +583,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Webpack</a>
+        <a href=".." >React</a>
     </h1>
 </div>
 
@@ -598,149 +598,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="webpack">Webpack</h1>
-<h2 id="version">Version</h2>
-<p>^Webpack 2</p>
-<h2 id="my-basic-webpack-config">My basic webpack config</h2>
-<p>This is an example of webpack config file I copy from my <strong>React</strong> project. I use <a href="https://ant.design" target="_blank">ant design</a> as my UI library.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;webpack&apos;</span>);
-<span class="hljs-keyword">const</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;html-webpack-plugin&apos;</span>);
-<span class="hljs-keyword">const</span> ExtractTextPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;extract-text-webpack-plugin&apos;</span>);
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
-<span class="hljs-keyword">const</span> fs  = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
-
-<span class="hljs-keyword">const</span> APP_INDEX = path.join(__dirname, <span class="hljs-string">&quot;/index.js&quot;</span>);
-<span class="hljs-keyword">const</span> APP_DIR = path.join(__dirname, <span class="hljs-string">&quot;/&quot;</span>);
-<span class="hljs-keyword">const</span> BUILD_PATH = path.join(__dirname, <span class="hljs-string">&quot;/dist&quot;</span>);
-<span class="hljs-keyword">const</span> publicPath = path.join(__dirname, <span class="hljs-string">&apos;/public&apos;</span>);
-
-<span class="hljs-built_in">module</span>.exports = {
-    entry: APP_INDEX,
-    output: {
-        filename: <span class="hljs-string">&apos;[name].js&apos;</span>, <span class="hljs-comment">//output name after building</span>
-        path: BUILD_PATH,
-        chunkFilename: <span class="hljs-string">&apos;[name].min.js&apos;</span>,
-        publicPath: <span class="hljs-string">&apos;/&apos;</span>
-    },
-
-    resolve: {
-        extensions: [<span class="hljs-string">&quot;.js&quot;</span>, <span class="hljs-string">&quot;.json&quot;</span>],
-        alias: {
-            <span class="hljs-comment">// with alias you can simply use like: </span>
-            <span class="hljs-comment">// import Something from &apos;@Components/Something&apos;</span>
-            <span class="hljs-string">&apos;@Components&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;components/&apos;</span>),
-        }
-    },
-
-    <span class="hljs-comment">// Enable sourcemaps for debugging webpack&apos;s output.</span>
-    devtool: <span class="hljs-string">&quot;source-map&quot;</span>,
-
-    <span class="hljs-built_in">module</span>: {
-        rules: [
-            {
-                test: <span class="hljs-regexp">/\.(js|jsx)$/</span>,
-                loader: <span class="hljs-string">&apos;babel-loader&apos;</span>,
-                include: [
-                    APP_DIR
-                ],
-                exclude: <span class="hljs-regexp">/node_modules/</span>
-            },
-            {
-                test: <span class="hljs-regexp">/\.css$/</span>,
-                loader: ExtractTextPlugin.extract({ fallback: <span class="hljs-string">&apos;style-loader&apos;</span>, use: <span class="hljs-string">&apos;css-loader&apos;</span> }),
-                exclude: <span class="hljs-regexp">/node_modules/</span>,
-            },
-            {
-                test: <span class="hljs-regexp">/.less$/</span>,
-                include: [
-                    <span class="hljs-comment">// include ant design</span>
-                    path.resolve(__dirname, <span class="hljs-string">&apos;node_modules/antd&apos;</span>),
-                    APP_DIR
-                ],
-                use: ExtractTextPlugin.extract({
-                  fallback: <span class="hljs-string">&apos;style-loader&apos;</span>,
-                  use: [{
-                      loader: <span class="hljs-string">&apos;css-loader&apos;</span>,
-                    },
-                    {
-                      loader: <span class="hljs-string">&apos;less-loader&apos;</span>,
-                      options: {
-                        sourceMap: <span class="hljs-literal">true</span>,
-                        modules: <span class="hljs-literal">false</span>,
-                        modifyVars: theme,
-                      },
-                    },
-                  ],
-                }),
-            },
-            {
-                test: <span class="hljs-regexp">/\.scss$/</span>,
-                loader: ExtractTextPlugin.extract({ fallback: <span class="hljs-string">&apos;style-loader&apos;</span>, use: <span class="hljs-string">&apos;sass-loader&apos;</span> }),
-                exclude: <span class="hljs-regexp">/node_modules/</span>,
-            },
-            {
-                test: <span class="hljs-regexp">/\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/</span>,
-                exclude: <span class="hljs-regexp">/node_modules/</span>,
-                loader: <span class="hljs-string">&apos;file-loader?name=[name].[ext]&apos;</span>
-            },
-            {
-                test: <span class="hljs-regexp">/\.(png|jpg|jpeg|gif)$/</span>,
-                exclude: <span class="hljs-regexp">/node_modules/</span>,
-                <span class="hljs-comment">// while the image file is small than the value of limit, it will be encoded in base64</span>
-                loader: <span class="hljs-string">&apos;url-loader?limit=8192&apos;</span>, <span class="hljs-comment">//url-loader?limit=8192&amp;name=images/[name].[ext]</span>
-            }
-        ]
-    },
-    plugins: [
-        <span class="hljs-keyword">new</span> HtmlWebpackPlugin({
-            title: productConfig.title,
-            desc: productConfig.description,
-            content: productConfig.content,
-            template: path.join(__dirname, <span class="hljs-string">&quot;/template/index.template.html&quot;</span>),
-            react_cdn: <span class="hljs-string">&quot;https://unpkg.com/react@16/umd/react.development.min.js&quot;</span>,
-            react_dom_cdn: <span class="hljs-string">&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.min.js&quot;</span>
-        }),
-        <span class="hljs-keyword">new</span> webpack.DefinePlugin({
-            <span class="hljs-string">&quot;process.env&quot;</span>: {
-                <span class="hljs-comment">//define node environment</span>
-                NODE_ENV: <span class="hljs-built_in">JSON</span>.stringify(<span class="hljs-string">&apos;development&apos;</span>),
-                <span class="hljs-comment">// define anny process env here, and can be accessed as</span>
-                <span class="hljs-comment">// process.env.STH</span>
-            }
-        }),
-        <span class="hljs-keyword">new</span> ExtractTextPlugin(<span class="hljs-string">&quot;[name]-[hash].css&quot;</span>),
-        <span class="hljs-comment">// use following two plugins for production</span>
-        <span class="hljs-keyword">new</span> webpack.optimize.CommonsChunkPlugin({ name: <span class="hljs-string">&apos;vendor&apos;</span>, filename: <span class="hljs-string">&apos;vendor.bundle.js&apos;</span> }),
-        <span class="hljs-keyword">new</span> webpack.optimize.UglifyJsPlugin({
-            output: {
-                <span class="hljs-comment">// remove all comments</span>
-                comments: <span class="hljs-literal">false</span>,
-            },
-            compress: {
-                warnings: <span class="hljs-literal">false</span>,
-                 <span class="hljs-comment">// Drop console statements</span>
-                drop_console: <span class="hljs-literal">true</span>
-            }
-        })
-    ],
-
-    <span class="hljs-comment">// When importing a module whose path matches one of the following, just assume</span>
-    <span class="hljs-comment">// a corresponding global variable exists and use that instead. This is</span>
-    <span class="hljs-comment">// important because it allows us to avoid bundling all of our dependencies,</span>
-    <span class="hljs-comment">// which allows browsers to cache those libraries between builds.</span>
-    externals: {
-        <span class="hljs-string">&quot;react&quot;</span>: <span class="hljs-string">&quot;React&quot;</span>, <span class="hljs-string">&quot;react-dom&quot;</span>: <span class="hljs-string">&quot;ReactDOM&quot;</span>
-    }
-};
-</code></pre>
-<h2 id="some-usefull-scripts-in-packagejson">Some usefull scripts in package.json</h2>
-<p>Usually I have two webpack config file, one is for developing <strong>webpack.config.dev.js</strong>, another one for production <strong>webpack.config.prod.js</strong></p>
-<pre><code class="lang-json"><span class="hljs-string">&quot;scripts&quot;</span>: {
-    <span class="hljs-string">&quot;dev&quot;</span>: <span class="hljs-string">&quot;webpack-dev-server --config webpack.config.dev.js&quot;</span>,
-    <span class="hljs-string">&quot;prod&quot;</span>: <span class="hljs-string">&quot;webpack --config webpack.config.prod.js&quot;</span>,
-}
-</code></pre>
-
+                                
                                 
                                 </section>
                             
@@ -767,12 +625,12 @@
 
             
                 
-                <a href="CDN.html" class="navigation navigation-prev " aria-label="Previous page: CDN">
+                <a href="rxjs.html" class="navigation navigation-prev " aria-label="Previous page: RxJS">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="typescript.html" class="navigation navigation-next " aria-label="Next page: TypeScript">
+                <a href="redux.html" class="navigation navigation-next " aria-label="Next page: Redux">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -783,7 +641,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Webpack","level":"4.2","depth":1,"next":{"title":"TypeScript","level":"4.3","depth":1,"path":"frontend/typescript.md","ref":"frontend/typescript.md","articles":[]},"previous":{"title":"CDN","level":"4.1","depth":1,"path":"frontend/CDN.md","ref":"frontend/CDN.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"frontend/webpack.md","mtime":"2018-02-10T05:02:43.616Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-11T06:43:05.168Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React","level":"4.6","depth":1,"next":{"title":"Redux","level":"4.7","depth":1,"path":"frontend/redux.md","ref":"frontend/redux.md","articles":[]},"previous":{"title":"RxJS","level":"4.5","depth":1,"path":"frontend/rxjs.md","ref":"frontend/rxjs.md","articles":[]},"dir":"neutral"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"frontend/react.md","mtime":"2018-02-11T04:17:11.566Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-11T06:43:05.168Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
