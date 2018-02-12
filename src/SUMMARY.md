@@ -2,6 +2,11 @@
 
 * [Introduction](README.md)
 
+### Projects
+
+* [rx-simple-state](projects/rx-simple-state.md)
+* [Uploader Dash](projects/uploaderdash.md)
+
 ### CS Fundamentals
 
 * [Process & Thread](fundamental/process-thread.md)
@@ -43,9 +48,3 @@
 * [Nextcloud](devops/nextcloud.md)
 * [Docker](devops/docker.md)
 * [Let's Encrypt](devops/let-s-encrypt.md)
-
-
-### Projects
-
-* [rx-simple-state](open/rx-simple-state.md)
-* [Uploader Dash](open/uploaderdash.md)
