@@ -600,6 +600,140 @@
                                 
                                 <h1 id="regular-expression">Regular Expression</h1>
 <h3 id="cheat-sheet">Cheat sheet</h3>
+<h4 id="characters">Characters</h4>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td style="text-align:center">One digit</td>
+</tr>
+<tr>
+<td>\w</td>
+<td style="text-align:center">word character: ASCII letter, digit or underscore</td>
+</tr>
+<tr>
+<td>\s</td>
+<td style="text-align:center">whitespace character: space, tab, newline, carriage return, vertical tab</td>
+</tr>
+<tr>
+<td>.</td>
+<td style="text-align:center">Any character except line break: .* anything</td>
+</tr>
+</tbody>
+</table>
+<h4 id="quantifiers">Quantifiers</h4>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th style="text-align:center">Description</th>
+<th style="text-align:center">Lengend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td style="text-align:center">One or more</td>
+<td style="text-align:center">greedy</td>
+</tr>
+<tr>
+<td>{3}</td>
+<td style="text-align:center">Exactly three times</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>{2,4}</td>
+<td style="text-align:center">Two to four times</td>
+<td style="text-align:center">greedy</td>
+</tr>
+<tr>
+<td>{3,}</td>
+<td style="text-align:center">three or more times</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>*</td>
+<td style="text-align:center">Zero or more times</td>
+<td style="text-align:center">greedy</td>
+</tr>
+<tr>
+<td>?</td>
+<td style="text-align:center">Once or none</td>
+<td style="text-align:center">lazy</td>
+</tr>
+</tbody>
+</table>
+<h4 id="logic">Logic</h4>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>|</td>
+<td style="text-align:center">Alternation/OR</td>
+</tr>
+<tr>
+<td>(...)</td>
+<td style="text-align:center">Capturing group: A(nt|pple) = ant or apple</td>
+</tr>
+</tbody>
+</table>
+<h4 id="white-space">White space</h4>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\t</td>
+<td style="text-align:center">tab</td>
+</tr>
+<tr>
+<td>\n</td>
+<td style="text-align:center">Line separator</td>
+</tr>
+<tr>
+<td>\r\n</td>
+<td style="text-align:center">Line separator on windows</td>
+</tr>
+</tbody>
+</table>
+<h4 id="anchors-and-boundaries">Anchors and Boundaries</h4>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td style="text-align:center">Start of string</td>
+</tr>
+<tr>
+<td>$</td>
+<td style="text-align:center">End of string</td>
+</tr>
+<tr>
+<td>\b</td>
+<td style="text-align:center">Word boundary</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -643,7 +777,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Regular Expression","level":"2.3","depth":1,"next":{"title":"OOP Questions","level":"2.4","depth":1,"path":"fundamental/oop.md","ref":"fundamental/oop.md","articles":[]},"previous":{"title":"Garbage Collection","level":"2.2","depth":1,"path":"fundamental/garbage_collection.md","ref":"fundamental/garbage_collection.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/regex.md","mtime":"2018-02-11T06:41:13.116Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-11T06:43:05.168Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Regular Expression","level":"2.3","depth":1,"next":{"title":"OOP Questions","level":"2.4","depth":1,"path":"fundamental/oop.md","ref":"fundamental/oop.md","articles":[]},"previous":{"title":"Garbage Collection","level":"2.2","depth":1,"path":"fundamental/garbage_collection.md","ref":"fundamental/garbage_collection.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/regex.md","mtime":"2018-02-12T01:18:00.647Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-12T01:59:32.401Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
