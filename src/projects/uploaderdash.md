@@ -51,6 +51,6 @@ Uploader Dash is a nextcloud Apps implemented for uploading huge files with chun
 * Firefox 火狐: 完全兼容
 * 安卓手机 Chrome: UI 显示有部分问题 不能上传文件夹 但是可以上传单个或多个文件
 * IE **不兼容**
-* Edge: 有部分Bug 待修复
-* Safari: 有部分Bug 待修复
+* Edge: 完全兼容，但性能不佳
+* Safari: 完全兼容
 * 微信浏览器 **不兼容**
