@@ -65,3 +65,5 @@ public void dfsStack(Node root) {
 ### Advance
 * Iterative deepening search
 * Dijkstra's algorithm for weighted graphs
+
+### Topological Sort

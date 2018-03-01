@@ -21,6 +21,11 @@
 * [BFS & DFS](fundamental/bfs-dfs.md)
 * [Dynamic Programming](fundamental/dp.md)
 
+### Android
+
+* [MVP](android/MVP.md)
+* [Architecture](android/architecture.md)
+
 ### Back-End
 
 * [Cache](backend/cache.md)
