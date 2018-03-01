@@ -24,7 +24,7 @@
 ### Android
 
 * [MVP](android/MVP.md)
-* [Architecture](android/architecture.md)
+* [Interviews Question](android/interviews.md)
 
 ### Back-End
 

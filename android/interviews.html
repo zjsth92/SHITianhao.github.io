@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>OAuth 2 & JWT · GitBook</title>
+        <title>Interviews Question · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="elasticsearch.html" />
+    <link rel="next" href="../backend/cache.html" />
     
     
-    <link rel="prev" href="mariadb.html" />
+    <link rel="prev" href="MVP.html" />
     
 
     </head>
@@ -292,9 +292,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../android/MVP.html">
+        <li class="chapter " data-level="4.1" data-path="MVP.html">
             
-                <a href="../android/MVP.html">
+                <a href="MVP.html">
             
                     
                     MVP
@@ -305,9 +305,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../android/interviews.html">
+        <li class="chapter active" data-level="4.2" data-path="interviews.html">
             
-                <a href="../android/interviews.html">
+                <a href="interviews.html">
             
                     
                     Interviews Question
@@ -325,9 +325,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="cache.html">
+        <li class="chapter " data-level="5.1" data-path="../backend/cache.html">
             
-                <a href="cache.html">
+                <a href="../backend/cache.html">
             
                     
                     Cache
@@ -338,9 +338,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="mq.html">
+        <li class="chapter " data-level="5.2" data-path="../backend/mq.html">
             
-                <a href="mq.html">
+                <a href="../backend/mq.html">
             
                     
                     Message Queue
@@ -351,9 +351,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="mongodb.html">
+        <li class="chapter " data-level="5.3" data-path="../backend/mongodb.html">
             
-                <a href="mongodb.html">
+                <a href="../backend/mongodb.html">
             
                     
                     MongoDB
@@ -364,9 +364,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="mariadb.html">
+        <li class="chapter " data-level="5.4" data-path="../backend/mariadb.html">
             
-                <a href="mariadb.html">
+                <a href="../backend/mariadb.html">
             
                     
                     Mariadb
@@ -377,9 +377,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.5" data-path="oauth2-jwt.html">
+        <li class="chapter " data-level="5.5" data-path="../backend/oauth2-jwt.html">
             
-                <a href="oauth2-jwt.html">
+                <a href="../backend/oauth2-jwt.html">
             
                     
                     OAuth 2 & JWT
@@ -390,9 +390,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" data-path="elasticsearch.html">
+        <li class="chapter " data-level="5.6" data-path="../backend/elasticsearch.html">
             
-                <a href="elasticsearch.html">
+                <a href="../backend/elasticsearch.html">
             
                     
                     Elasticsearch
@@ -403,9 +403,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.7" data-path="logstash.html">
+        <li class="chapter " data-level="5.7" data-path="../backend/logstash.html">
             
-                <a href="logstash.html">
+                <a href="../backend/logstash.html">
             
                     
                     Logstash
@@ -616,7 +616,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >OAuth 2 & JWT</a>
+        <a href=".." >Interviews Question</a>
     </h1>
 </div>
 
@@ -631,7 +631,95 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="android-interview-questions">Android Interview Questions</h1>
+<p><a href="http://www.andreas-schrade.de/2017/02/23/android-interview-questions/" target="_blank">http://www.andreas-schrade.de/2017/02/23/android-interview-questions/</a></p>
+<h3 id="what-is-dalvik-">What is Dalvik ?</h3>
+<ul>
+<li>Dalvik is register-based VM. It is now replace by ART (Android Runtime) since Lollipop (5.0).</li>
+<li>Each App is running on an instance of Dalvik.</li>
+</ul>
+<h3 id="jvm-vs-dalvik">JVM vs Dalvik</h3>
+<ul>
+<li>JVM is stack based and Dalvik is register based.</li>
+<li>In stack based vm, the memory structure where the operands are stored is a stack structure data. Operations are carring out by popping data from stack, and pushing back the result in LIFO</li>
+<li>In register based VM, the memory structure is based on the registers of the CPU. There is no PUSH or POP operations. Each instruction needs to contain the address of the operands.</li>
+<li>Dalvik uses Dex file, and JVM consumes Java bytecode.</li>
+</ul>
+<h3 id="art-vs-dalvik">ART vs Dalvik</h3>
+<ul>
+<li>ART uses AOT (Ahead of time) compilation</li>
+<li>In ART, since the code is pre-compiled at installed time, so the installing will take a bit longer.</li>
+<li>Machine code requires more space than the existing bytecode.</li>
+</ul>
+<h3 id="what-is-the-ui-thread">What is the &#x201C;UI thread&#x201D;?</h3>
+<ul>
+<li>In comment case it is the <strong>main</strong> thread. It is in charge of dispatching events to the appropriate user interface widgets. </li>
+<li>If the UI thread is blocked more than 5 seconds, the ANR dialog will show up.</li>
+</ul>
+<h3 id="intent">Intent</h3>
+<ul>
+<li>An Intent is basically a message that is passed between components</li>
+<li>Pieces of Intent<ul>
+<li>Action</li>
+<li>Extras</li>
+<li>Component name: The name of the component to start.</li>
+<li>Flag: Optional metadata for the Intent</li>
+</ul>
+</li>
+<li>Implicit Intent<ul>
+<li>It doesn&apos;t specify the target component.</li>
+<li>If multiple components are compatible. The system will show a dialog so that the user can pick which one to use.</li>
+<li>If there is no compatible component then the App will crash immediately. So check with <code>resolveActivity</code> before sending Intent is a must.</li>
+</ul>
+</li>
+<li>Explicit Intent <ul>
+<li>It specifies the component by the fully-qualified class name to start.    </li>
+</ul>
+</li>
+<li>PendingIntent<ul>
+<li>It wraps a regular Intent that specifies an action to take in the future</li>
+<li>Ex: AlarmManager triggers a PendingIntent at a specific time</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-is-a-service-">What is a Service ?</h3>
+<ul>
+<li>A service is an application component without user interface that can perform <strong>long</strong> running operations in the background.</li>
+<li>A Service runs in the <strong>main thread</strong>. All blocking operations must run in a new thread inside the service instance.</li>
+<li><p>Lifecycle: </p>
+<ul>
+<li><p>Started Service: onCreate() -&gt; onStartCommand() -&gt; RUNNING -&gt; onDestroy()</p>
+</li>
+<li><p>Binded Service: onCreate() -&gt; onBind() -&gt; RUNNING -&gt; onUnbind() -&gt; onDestroy()</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-is-an-intentservice-">What is an IntentService ?</h3>
+<ul>
+<li>IntentService is a subclass of Service that uses a <strong>worker thread</strong> </li>
+<li>IntentService stops itself automatically as soons as all tasks have been handled.</li>
+<li>Used for &quot;fire and forget tasks&quot;.</li>
+</ul>
+<h3 id="what-is-asynctask-">What is AsyncTask ?</h3>
+<ul>
+<li>AsyncTask allows to run short operations in the background and publish results easily on the UI thread.</li>
+<li>It is used for <strong>short</strong> operations from within Activity or Fragment, such as loading big Bitmap.</li>
+</ul>
+<h3 id="what-is-handler-">What is Handler ?</h3>
+<ul>
+<li>It is used for handling an actiono on a different thread.</li>
+<li>It can schedule runnable to be excuted at some point in the future.</li>
+</ul>
+<h3 id="sharedpreference">SharedPreference</h3>
+<ul>
+<li>A simple mechanism to store data in Android as a collection of key-value in a XML file.</li>
+</ul>
+<h3 id="content-providers">Content Providers</h3>
+<ul>
+<li>It will share the data between applications.</li>
+</ul>
+
                                 
                                 </section>
                             
@@ -658,12 +746,12 @@
 
             
                 
-                <a href="mariadb.html" class="navigation navigation-prev " aria-label="Previous page: Mariadb">
+                <a href="MVP.html" class="navigation navigation-prev " aria-label="Previous page: MVP">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="elasticsearch.html" class="navigation navigation-next " aria-label="Next page: Elasticsearch">
+                <a href="../backend/cache.html" class="navigation navigation-next " aria-label="Next page: Cache">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -674,7 +762,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"OAuth 2 & JWT","level":"5.5","depth":1,"next":{"title":"Elasticsearch","level":"5.6","depth":1,"path":"backend/elasticsearch.md","ref":"backend/elasticsearch.md","articles":[]},"previous":{"title":"Mariadb","level":"5.4","depth":1,"path":"backend/mariadb.md","ref":"backend/mariadb.md","articles":[]},"dir":"neutral"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"backend/oauth2-jwt.md","mtime":"2018-02-11T04:14:38.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-01T02:28:45.911Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Interviews Question","level":"4.2","depth":1,"next":{"title":"Cache","level":"5.1","depth":1,"path":"backend/cache.md","ref":"backend/cache.md","articles":[]},"previous":{"title":"MVP","level":"4.1","depth":1,"path":"android/MVP.md","ref":"android/MVP.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"android/interviews.md","mtime":"2018-03-01T02:25:21.831Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-01T02:28:45.911Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
