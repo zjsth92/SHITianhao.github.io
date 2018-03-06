@@ -1,5 +1,5 @@
-# Introduction
+<img src="TSHI.png" alt="Logo"/>
 
-I am Tianhao Shi,
+## I am Tianhao Shi,
 
-Here is my blog!
+## Here is my blog!

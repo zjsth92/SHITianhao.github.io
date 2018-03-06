@@ -3,7 +3,7 @@
 ### What is MVP
 It is an architecture that provides code reusability and testability. MVP application can be divided into three parts
 
-![Android MVC](android/android-mvp-concept-diagram.JPG)
+![Android MVC](android-mvp-concept-diagram.png)
 
 * Model
     * DataManager
