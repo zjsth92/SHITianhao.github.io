@@ -26,3 +26,7 @@ Processes are isolated between each other as a sandbox. But sometimes processes 
 
 * Mutex: An object (lock) is created so that multiple threads can take turens sharing the same resource
 * Single thread ;) such as JavaScript or PHP using single thread avoiding concurrent programming.
+
+### Single thread vs multiple thread
+* Single thread - IO intensive
+* Multipe thread - CPU intensive
