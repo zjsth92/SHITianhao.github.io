@@ -26,7 +26,7 @@
 * [MVP](android/MVP.md)
 * [Interviews Question](android/interviews.md)
 
-### Back-End
+<!-- ### Back-End
 
 * [Cache](backend/cache.md)
 * [Message Queue](backend/mq.md)
@@ -34,7 +34,7 @@
 * [Mariadb](backend/mariadb.md)
 * [OAuth 2 & JWT](backend/oauth2-jwt.md)
 * [Elasticsearch](backend/elasticsearch.md)
-* [Logstash](backend/logstash.md)
+* [Logstash](backend/logstash.md) -->
 
 ### Front-End
 

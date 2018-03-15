@@ -1,5 +1,7 @@
 # Data Structure
 
+## Structures
+
 ### Arrays
 
 Implement an automatically resizing array.
@@ -21,4 +23,9 @@ Implementation of Last in First out, including two operations:
 
 Fist in First out. Linkedlist can be used as an implementation
 
-### Hash table
+### Binary Search Tree
+
+### Balance Tree
+
+
+## Complextity

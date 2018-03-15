@@ -1,6 +1,0 @@
-# Cache
-
-### LRU
-
-### Redis
-### Memchached

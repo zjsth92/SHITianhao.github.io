@@ -321,109 +321,11 @@
 
     
         
-        <li class="header">Back-End</li>
-        
-        
-    
-        <li class="chapter " data-level="5.1" data-path="../backend/cache.html">
-            
-                <a href="../backend/cache.html">
-            
-                    
-                    Cache
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.2" data-path="../backend/mq.html">
-            
-                <a href="../backend/mq.html">
-            
-                    
-                    Message Queue
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.3" data-path="../backend/mongodb.html">
-            
-                <a href="../backend/mongodb.html">
-            
-                    
-                    MongoDB
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.4" data-path="../backend/mariadb.html">
-            
-                <a href="../backend/mariadb.html">
-            
-                    
-                    Mariadb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.5" data-path="../backend/oauth2-jwt.html">
-            
-                <a href="../backend/oauth2-jwt.html">
-            
-                    
-                    OAuth 2 & JWT
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.6" data-path="../backend/elasticsearch.html">
-            
-                <a href="../backend/elasticsearch.html">
-            
-                    
-                    Elasticsearch
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.7" data-path="../backend/logstash.html">
-            
-                <a href="../backend/logstash.html">
-            
-                    
-                    Logstash
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
         <li class="header">Front-End</li>
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../frontend/CDN.html">
+        <li class="chapter " data-level="5.1" data-path="../frontend/CDN.html">
             
                 <a href="../frontend/CDN.html">
             
@@ -436,7 +338,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../frontend/webpack.html">
+        <li class="chapter " data-level="5.2" data-path="../frontend/webpack.html">
             
                 <a href="../frontend/webpack.html">
             
@@ -449,7 +351,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.3" data-path="../frontend/typescript.html">
+        <li class="chapter " data-level="5.3" data-path="../frontend/typescript.html">
             
                 <a href="../frontend/typescript.html">
             
@@ -462,7 +364,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.4" data-path="../frontend/ui-lib.html">
+        <li class="chapter " data-level="5.4" data-path="../frontend/ui-lib.html">
             
                 <a href="../frontend/ui-lib.html">
             
@@ -475,7 +377,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.5" data-path="../frontend/rxjs.html">
+        <li class="chapter " data-level="5.5" data-path="../frontend/rxjs.html">
             
                 <a href="../frontend/rxjs.html">
             
@@ -488,7 +390,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.6" data-path="../frontend/react.html">
+        <li class="chapter " data-level="5.6" data-path="../frontend/react.html">
             
                 <a href="../frontend/react.html">
             
@@ -501,7 +403,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.7" data-path="../frontend/redux.html">
+        <li class="chapter " data-level="5.7" data-path="../frontend/redux.html">
             
                 <a href="../frontend/redux.html">
             
@@ -514,7 +416,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.8" data-path="../frontend/websocket.html">
+        <li class="chapter " data-level="5.8" data-path="../frontend/websocket.html">
             
                 <a href="../frontend/websocket.html">
             
@@ -534,7 +436,7 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="../devops/nginx.html">
+        <li class="chapter " data-level="6.1" data-path="../devops/nginx.html">
             
                 <a href="../devops/nginx.html">
             
@@ -547,7 +449,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="../devops/nextcloud.html">
+        <li class="chapter " data-level="6.2" data-path="../devops/nextcloud.html">
             
                 <a href="../devops/nextcloud.html">
             
@@ -560,7 +462,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7.3" data-path="../devops/docker.html">
+        <li class="chapter " data-level="6.3" data-path="../devops/docker.html">
             
                 <a href="../devops/docker.html">
             
@@ -573,7 +475,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7.4" data-path="../devops/let-s-encrypt.html">
+        <li class="chapter " data-level="6.4" data-path="../devops/let-s-encrypt.html">
             
                 <a href="../devops/let-s-encrypt.html">
             
@@ -679,15 +581,19 @@
 }
 </code></pre>
 <h3 id="usage">Usage</h3>
+<p>A good summary from Stackoverflow <a href="https://stackoverflow.com/questions/3332947/when-is-it-practical-to-use-depth-first-search-dfs-vs-breadth-first-search-bf" target="_blank">When is it practical to use Depth-First Search (DFS) vs Breadth-First Search (BFS)?</a></p>
 <h4 id="bfs">BFS</h4>
 <ul>
+<li>Best solution for finding the kTh element in BST</li>
 <li>Use Queue for bfs</li>
-<li>Find the shortest path in a graph even contains circle. However, BFS must maintain a queue of nodes to visit, this queue will grow to the size of whole graph.<h4 id="dfs">DFS</h4>
-</li>
+<li>Find the shortest path in a graph even contains circle. However, BFS must maintain a queue of nodes to visit, this queue will grow to the size of whole graph.</li>
+</ul>
+<h4 id="dfs">DFS</h4>
+<ul>
+<li>Topological sort</li>
 <li>Use stack for DFS, or recursion (the call stack)</li>
 <li>DFS is ofen used in simulation of games.</li>
 <li>Compare with BFS, DFS has less space complexity.</li>
-<li>A good summary from Stackoverflow <a href="https://stackoverflow.com/questions/3332947/when-is-it-practical-to-use-depth-first-search-dfs-vs-breadth-first-search-bf" target="_blank">When is it practical to use Depth-First Search (DFS) vs Breadth-First Search (BFS)?</a></li>
 </ul>
 <h3 id="advance">Advance</h3>
 <ul>
@@ -695,6 +601,7 @@
 <li>Dijkstra&apos;s algorithm for weighted graphs</li>
 </ul>
 <h3 id="topological-sort">Topological Sort</h3>
+<p>DFS can be used for topological sort. Topological sort can be used for <strong>dependence analyzing</strong>. For instance, giving an enter point <code>index.js</code> to the frontend build system, the build system must figure out which parts of dependences and source code must be included, and come out a bundle that can be served in production. In this case, topological sort is the best way go.</p>
 
                                 
                                 </section>
@@ -738,7 +645,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BFS & DFS","level":"3.10","depth":1,"next":{"title":"Dynamic Programming","level":"3.11","depth":1,"path":"fundamental/dp.md","ref":"fundamental/dp.md","articles":[]},"previous":{"title":"Design Patterns","level":"3.9","depth":1,"path":"fundamental/design-patterns.md","ref":"fundamental/design-patterns.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/bfs-dfs.md","mtime":"2018-02-28T05:48:46.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-07T20:24:43.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"BFS & DFS","level":"3.10","depth":1,"next":{"title":"Dynamic Programming","level":"3.11","depth":1,"path":"fundamental/dp.md","ref":"fundamental/dp.md","articles":[]},"previous":{"title":"Design Patterns","level":"3.9","depth":1,"path":"fundamental/design-patterns.md","ref":"fundamental/design-patterns.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/bfs-dfs.md","mtime":"2018-03-11T00:45:20.481Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-15T05:52:39.380Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
