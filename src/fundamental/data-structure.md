@@ -12,6 +12,46 @@ Once the array is full, an increased array will be allocted and fill with previo
 
 Elements are connected with pointer. The previous element includes a pointer that points to the next element's address.
 
+Implementation:
+
+```java
+class Node  {
+    Node next;
+    int value;
+    public Node() {}
+    public Node(int value) {
+        this.value = value;
+    }
+}
+class LinkedList {
+    Node root;
+    Node tail;
+    public LinkeList() {
+        this.root = new Node();
+        this.tail = this.root;
+    }
+
+    public void add(Node node) {
+        this.tail.next = node;
+        this.tail = tail.next;
+    }
+
+    public void delete(int value) {
+        Node cur = this.root.next;
+        Node prev = this.root;
+        while(cur != null) {
+            if(cur.value == value) {
+                prev.next = cur.next;
+                break;
+            }
+            prev = cur;
+            cur = cur.next;
+        }
+    }
+
+}
+```
+
 ### Stack
 
 Implementation of Last in First out, including two operations:
@@ -19,9 +59,74 @@ Implementation of Last in First out, including two operations:
 * Push: add element into collection
 * Pop: remove the most recently added elements
 
+Implementation:
+
+```java
+class Node  {
+    Node next;
+    int value;
+    public Node() {}
+    public Node(int value) {
+        this.value = value;
+    }
+}
+class Stack {
+    Node top;
+    public Stack() {}
+
+    public void push(int value) {
+        Node node = new Node(value);
+        node.next = this.top;
+        this.top = node;
+    }
+
+    public Node pop() {
+        if(this.top == null) return null;
+        int result = this.top.value;
+        this.top = top.next;
+        return result;
+    }
+}
+```
+
 ### Queue
 
 Fist in First out. Linkedlist can be used as an implementation
+
+Implementation:
+
+```java
+class Node  {
+    Node next;
+    int value;
+    public Node() {}
+    public Node(int value) {
+        this.value = value;
+    }
+}
+class Queue {
+    Node head, tail;
+    public Queue() {}
+
+    public void push(int value) {
+        Node node = new Node(value);
+        if(head == null) {
+            this.tail = node;
+            this.head = node;
+        } else {
+            this.tail.next = node;
+            this.tail = this.tail.next;
+        }
+    }
+
+    public Node poll() {
+        if(this.head == null) return null;
+        int result = this.top.value;
+        this.top = top.next;
+        return result;
+    }
+}
+```
 
 ### Hash Table (Hash Map)
 
