@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Dynamic Programming · GitBook</title>
+        <title>Sort · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../android/MVP.html" />
+    <link rel="next" href="crypto.html" />
     
     
-    <link rel="prev" href="design-patterns.html" />
+    <link rel="prev" href="tries.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.6" data-path="sort.html">
+        <li class="chapter active" data-level="3.6" data-path="sort.html">
             
                 <a href="sort.html">
             
@@ -259,7 +259,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.10" data-path="dp.html">
+        <li class="chapter " data-level="3.10" data-path="dp.html">
             
                 <a href="dp.html">
             
@@ -505,7 +505,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Dynamic Programming</a>
+        <a href=".." >Sort</a>
     </h1>
 </div>
 
@@ -520,7 +520,155 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="sort-algorithms">Sort Algorithms</h1>
+<h3 id="bubble-sort">Bubble Sort</h3>
+<p><strong>Time Complexity: O(n^2)</strong></p>
+<ul>
+<li>Start at the beginning of an array.</li>
+<li>Swap the first two element if the first is bigger/smaller than the second.</li>
+<li>Go to next pair.</li>
+<li>In the end of first scanning, the last element must the biggest/smallest one in this array.</li>
+</ul>
+<p>Implementation:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>{
+    <span class="hljs-keyword">int</span> len = arr.length;
+    <span class="hljs-comment">// O(n^2)</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++) {
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; len -<span class="hljs-number">1</span> - i; j++) {
+            <span class="hljs-keyword">int</span> first = arr[j];
+            <span class="hljs-keyword">int</span> second = arr[j+<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">if</span>(first &gt; second) {
+                arr[j] = second;
+                arr[j+<span class="hljs-number">1</span>] = first;
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="selection-sort">Selection Sort</h3>
+<p><strong>Time Complexity: O(n^2)</strong></p>
+<ul>
+<li>Linear scan to find the smallest element and move it to the front</li>
+<li>Find the next sallest element in the rest, and move on</li>
+</ul>
+<p>Implementation:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">selectionSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>{
+    <span class="hljs-keyword">int</span> len = arr.length;
+    <span class="hljs-comment">// O(n^2)</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++) {
+        <span class="hljs-comment">// Find the minimum element in unsorted array</span>
+        <span class="hljs-keyword">int</span> minP = i;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i; j &lt; len; j++) {
+            <span class="hljs-keyword">if</span>(arr[j] &lt; arr[minP])
+                minP = j;
+        }
+        <span class="hljs-keyword">int</span> temp = arr[i];
+        arr[i] = arr[minP];
+        arr[minP] = temp;
+    }
+}
+</code></pre>
+<h3 id="merge-sort">Merge Sort</h3>
+<p>Merge sort is a stable sort, but not in place.</p>
+<p><strong>Time Complexity: O(n Log n)</strong></p>
+<ul>
+<li>Sort each <strong>pair</strong> of elements.</li>
+<li>Sort every four elements by mergin every two pairs.</li>
+<li>Continue until all elements are in place.</li>
+</ul>
+<p><img src="img/Merge-Sort.png" alt="merge sort"></p>
+<p>Implementation:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> mid, <span class="hljs-keyword">int</span> right)</span> </span>{
+    <span class="hljs-keyword">int</span> leftLen = mid - left + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> rightLen =  right - mid;
+    <span class="hljs-keyword">int</span> len = leftLen + rightLen;
+    <span class="hljs-keyword">int</span>[] L = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[leftLen];
+    <span class="hljs-keyword">int</span>[] R = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[rightLen];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n1; i++)
+        L[i] = arr[left + i];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n2; i++)
+        R[i] = arr[mid + <span class="hljs-number">1</span>+ i];
+
+    <span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> r = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (l &lt; leftLen &amp;&amp; r &lt; rightLen) {
+        <span class="hljs-keyword">if</span> (L[i] &lt;= R[j]) {
+            arr[i] = L[l];
+            l++;
+        } <span class="hljs-keyword">else</span> {
+            arr[i] = R[r];
+            r++;
+        }
+        i++;
+    } 
+
+    <span class="hljs-keyword">while</span> (l &lt; leftLen) {
+        arr[i] = L[l];
+        i++;
+        l++;
+    }
+
+    <span class="hljs-keyword">while</span> (r &lt; rightLen) {
+        arr[i] = R[r];
+        r++;
+        i++;
+    }
+
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>{
+    <span class="hljs-keyword">if</span>(left &lt; right) {
+        <span class="hljs-keyword">int</span> mid = (left+right) / <span class="hljs-number">2</span>;
+        sort(arr, left, mid);
+        sort(arr, mid+<span class="hljs-number">1</span>, right);
+        merge(arr, left, mid, right);
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">mergeSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>{
+    <span class="hljs-keyword">int</span> len = arr.length;
+    sort(arr, <span class="hljs-number">0</span>, len -<span class="hljs-number">1</span>);
+}
+</code></pre>
+<h3 id="quick-sort">Quick Sort</h3>
+<p><strong>Time Complexity: Expected O(n Log n), Worst Case O(n^2)</strong></p>
+<ul>
+<li>Pick a random element, first, last or pure random as pivot.</li>
+<li>Partition the array, such that all numbers that are less than it come before all elements that are greater than it.</li>
+<li>Continue for each half.</li>
+</ul>
+<p>Implementation: always pick the last as pivot.</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>{
+    <span class="hljs-keyword">int</span> pivot = arr[right];
+    <span class="hljs-keyword">int</span> low = left;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = left; i &lt; right; i++) {
+        <span class="hljs-keyword">if</span>(arr[i] &lt; pivot) {
+            <span class="hljs-keyword">int</span> temp = arr[i];
+            arr[i] = arr[low];
+            arr[low] = temp;
+            low++;
+        }
+    }
+
+    <span class="hljs-comment">// swap arr[i+1] and arr[high] (or pivot)</span>
+    <span class="hljs-keyword">int</span> temp = arr[i+<span class="hljs-number">1</span>];
+    arr[i+<span class="hljs-number">1</span>] = arr[high];
+    arr[high] = temp;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span> </span>{
+    sort(arr, <span class="hljs-number">0</span>, arr.length -<span class="hljs-number">1</span>);
+}
+</code></pre>
+<h3 id="bucket-sort">Bucket Sort</h3>
+<p>Bucket sort is mainly useful when input is <strong>uniformly distributed</strong> over a range</p>
+<p><strong>Time Complexity: O(n + m)</strong></p>
+<ul>
+<li>Partition the array into a finite number of buckets.</li>
+<li>Sort each bucket individually.</li>
+</ul>
+
                                 
                                 </section>
                             
@@ -547,12 +695,12 @@
 
             
                 
-                <a href="design-patterns.html" class="navigation navigation-prev " aria-label="Previous page: Design Patterns">
+                <a href="tries.html" class="navigation navigation-prev " aria-label="Previous page: Tries">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../android/MVP.html" class="navigation navigation-next " aria-label="Next page: MVP">
+                <a href="crypto.html" class="navigation navigation-next " aria-label="Next page: Cryptography">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -563,7 +711,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dynamic Programming","level":"3.10","depth":1,"next":{"title":"MVP","level":"4.1","depth":1,"path":"android/MVP.md","ref":"android/MVP.md","articles":[]},"previous":{"title":"Design Patterns","level":"3.9","depth":1,"path":"fundamental/design-patterns.md","ref":"fundamental/design-patterns.md","articles":[]},"dir":"neutral"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/dp.md","mtime":"2018-02-11T04:13:37.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-21T06:23:38.034Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sort","level":"3.6","depth":1,"next":{"title":"Cryptography","level":"3.7","depth":1,"path":"fundamental/crypto.md","ref":"fundamental/crypto.md","articles":[]},"previous":{"title":"Tries","level":"3.5","depth":1,"path":"fundamental/tries.md","ref":"fundamental/tries.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/sort.md","mtime":"2018-03-21T04:55:51.282Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-21T06:23:38.034Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

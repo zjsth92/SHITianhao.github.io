@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="trees.html" />
+    <link rel="next" href="tries.html" />
     
     
-    <link rel="prev" href="oop.html" />
+    <link rel="prev" href="bfs-dfs.html" />
     
 
     </head>
@@ -155,20 +155,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="garbage_collection.html">
-            
-                <a href="garbage_collection.html">
-            
-                    
-                    Garbage Collection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.3" data-path="regex.html">
+        <li class="chapter " data-level="3.2" data-path="regex.html">
             
                 <a href="regex.html">
             
@@ -181,12 +168,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.4" data-path="oop.html">
+        <li class="chapter " data-level="3.3" data-path="bfs-dfs.html">
             
-                <a href="oop.html">
+                <a href="bfs-dfs.html">
             
                     
-                    OOP Questions
+                    BFS & DFS
             
                 </a>
             
@@ -194,7 +181,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="data-structure.html">
+        <li class="chapter active" data-level="3.4" data-path="data-structure.html">
             
                 <a href="data-structure.html">
             
@@ -207,20 +194,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.6" data-path="trees.html">
-            
-                <a href="trees.html">
-            
-                    
-                    Trees
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.7" data-path="tries.html">
+        <li class="chapter " data-level="3.5" data-path="tries.html">
             
                 <a href="tries.html">
             
@@ -233,12 +207,38 @@
             
         </li>
     
-        <li class="chapter " data-level="3.8" data-path="crypto.html">
+        <li class="chapter " data-level="3.6" data-path="sort.html">
+            
+                <a href="sort.html">
+            
+                    
+                    Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="crypto.html">
             
                 <a href="crypto.html">
             
                     
                     Cryptography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="oop.html">
+            
+                <a href="oop.html">
+            
+                    
+                    OOP Questions
             
                 </a>
             
@@ -259,20 +259,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.10" data-path="bfs-dfs.html">
-            
-                <a href="bfs-dfs.html">
-            
-                    
-                    BFS & DFS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.11" data-path="dp.html">
+        <li class="chapter " data-level="3.10" data-path="dp.html">
             
                 <a href="dp.html">
             
@@ -540,14 +527,110 @@
 <p>Once the array is full, an increased array will be allocted and fill with previous one. So that the complexity of <code>add</code> in array is not <strong>O(1)</strong> but <strong>O(1) amortized</strong>.</p>
 <h3 id="linked-lists">Linked Lists</h3>
 <p>Elements are connected with pointer. The previous element includes a pointer that points to the next element&apos;s address.</p>
+<p>Implementation:</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>  </span>{
+    Node next;
+    <span class="hljs-keyword">int</span> value;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">()</span> </span>{}
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>{
+        <span class="hljs-keyword">this</span>.value = value;
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkedList</span> </span>{
+    Node root;
+    Node tail;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LinkeList</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.root = <span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">this</span>.tail = <span class="hljs-keyword">this</span>.root;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(Node node)</span> </span>{
+        <span class="hljs-keyword">this</span>.tail.next = node;
+        <span class="hljs-keyword">this</span>.tail = tail.next;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>{
+        Node cur = <span class="hljs-keyword">this</span>.root.next;
+        Node prev = <span class="hljs-keyword">this</span>.root;
+        <span class="hljs-keyword">while</span>(cur != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">if</span>(cur.value == value) {
+                prev.next = cur.next;
+                <span class="hljs-keyword">break</span>;
+            }
+            prev = cur;
+            cur = cur.next;
+        }
+    }
+
+}
+</code></pre>
 <h3 id="stack">Stack</h3>
 <p>Implementation of Last in First out, including two operations:</p>
 <ul>
 <li>Push: add element into collection</li>
 <li>Pop: remove the most recently added elements</li>
 </ul>
+<p>Implementation:</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>  </span>{
+    Node next;
+    <span class="hljs-keyword">int</span> value;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">()</span> </span>{}
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>{
+        <span class="hljs-keyword">this</span>.value = value;
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stack</span> </span>{
+    Node top;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Stack</span><span class="hljs-params">()</span> </span>{}
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>{
+        Node node = <span class="hljs-keyword">new</span> Node(value);
+        node.next = <span class="hljs-keyword">this</span>.top;
+        <span class="hljs-keyword">this</span>.top = node;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.top == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">int</span> result = <span class="hljs-keyword">this</span>.top.value;
+        <span class="hljs-keyword">this</span>.top = top.next;
+        <span class="hljs-keyword">return</span> result;
+    }
+}
+</code></pre>
 <h3 id="queue">Queue</h3>
 <p>Fist in First out. Linkedlist can be used as an implementation</p>
+<p>Implementation:</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>  </span>{
+    Node next;
+    <span class="hljs-keyword">int</span> value;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">()</span> </span>{}
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>{
+        <span class="hljs-keyword">this</span>.value = value;
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Queue</span> </span>{
+    Node head, tail;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Queue</span><span class="hljs-params">()</span> </span>{}
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>{
+        Node node = <span class="hljs-keyword">new</span> Node(value);
+        <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>.tail = node;
+            <span class="hljs-keyword">this</span>.head = node;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.tail.next = node;
+            <span class="hljs-keyword">this</span>.tail = <span class="hljs-keyword">this</span>.tail.next;
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">poll</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.head == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">int</span> result = <span class="hljs-keyword">this</span>.top.value;
+        <span class="hljs-keyword">this</span>.top = top.next;
+        <span class="hljs-keyword">return</span> result;
+    }
+}
+</code></pre>
 <h3 id="hash-table-hash-map">Hash Table (Hash Map)</h3>
 <p>A structure that can map keys to values. A hash table uses a hash function to compute an index into an array of buckets or slots, frol which the desired value can be found.</p>
 <h4 id="collisions">Collisions</h4>
@@ -579,15 +662,22 @@
 <li>Post-Order: Left =&gt; Right =&gt; Root</li>
 </ul>
 <h3 id="binary-search-tree">Binary Search Tree</h3>
-<p>Also called <strong>ordered</strong> or <strong>sorted binary trees</strong>. BST is a binary tree whihc has the following properties:</p>
+<p>Also called <strong>ordered</strong> or <strong>sorted binary trees</strong>. BST is a binary tree which has the following properties:</p>
 <ul>
 <li>The left subtree contains only nodes lesser than root.</li>
 <li>The right subtree contains only nodes greater than root.</li>
 <li>The left and right subtree each must be a BST.</li>
-<li>In normal case, duplicates are excluded.<h4 id="self-balancing-binary-search-tree">Self-balancing binary search tree</h4>
-</li>
+<li>In normal case, duplicates are excluded.</li>
 </ul>
-<p>Also height-balanced binary search tree. It is a node-based binary search tree that automatically keeps its height small.</p>
+<h4 id="a-balanced-tree">A balanced tree</h4>
+<p>The tree is balanced if</p>
+<ol>
+<li>The left and right subtrees&apos; height differ by <strong>at most one</strong></li>
+<li>AND the left subtree is balanced.</li>
+<li>AND the right subtree is balanced.</li>
+</ol>
+<h4 id="self-balancing-binary-search-tree">Self-balancing binary search tree</h4>
+<p>Also height-balanced binary search tree. It is a node-based binary search tree that automatically keeps its height small. AVL tree is al self-balancing BST.</p>
 <h4 id="operations">Operations</h4>
 <ul>
 <li>Searching</li>
@@ -693,12 +783,12 @@
 
             
                 
-                <a href="oop.html" class="navigation navigation-prev " aria-label="Previous page: OOP Questions">
+                <a href="bfs-dfs.html" class="navigation navigation-prev " aria-label="Previous page: BFS & DFS">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="trees.html" class="navigation navigation-next " aria-label="Next page: Trees">
+                <a href="tries.html" class="navigation navigation-next " aria-label="Next page: Tries">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -709,7 +799,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Data Structures","level":"3.5","depth":1,"next":{"title":"Trees","level":"3.6","depth":1,"path":"fundamental/trees.md","ref":"fundamental/trees.md","articles":[]},"previous":{"title":"OOP Questions","level":"3.4","depth":1,"path":"fundamental/oop.md","ref":"fundamental/oop.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/data-structure.md","mtime":"2018-03-19T06:36:21.734Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-19T06:37:53.007Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Data Structures","level":"3.4","depth":1,"next":{"title":"Tries","level":"3.5","depth":1,"path":"fundamental/tries.md","ref":"fundamental/tries.md","articles":[]},"previous":{"title":"BFS & DFS","level":"3.3","depth":1,"path":"fundamental/bfs-dfs.md","ref":"fundamental/bfs-dfs.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fundamental/data-structure.md","mtime":"2018-03-20T03:48:22.249Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-21T06:23:38.034Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
