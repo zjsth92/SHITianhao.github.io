@@ -10,31 +10,20 @@
 ### CS Fundamentals
 
 * [Process & Thread](fundamental/process-thread.md)
-* [Garbage Collection](fundamental/garbage_collection.md)
 * [Regular Expression](fundamental/regex.md)
-* [OOP Questions](fundamental/oop.md)
-* [Data Structures](fundamental/data-structure.md)
-* [Trees](fundamental/trees.md)
-* [Tries](fundamental/tries.md)
-* [Cryptography](fundamental/crypto.md)
-* [Design Patterns](fundamental/design-patterns.md)
 * [BFS & DFS](fundamental/bfs-dfs.md)
+* [Data Structures](fundamental/data-structure.md)
+* [Tries](fundamental/tries.md)
+* [Sort](fundamental/sort.md)
+* [Cryptography](fundamental/crypto.md)
+* [OOP Questions](fundamental/oop.md)
+* [Design Patterns](fundamental/design-patterns.md)
 * [Dynamic Programming](fundamental/dp.md)
 
 ### Android
 
 * [MVP](android/MVP.md)
 * [Interviews Question](android/interviews.md)
-
-<!-- ### Back-End
-
-* [Cache](backend/cache.md)
-* [Message Queue](backend/mq.md)
-* [MongoDB](backend/mongodb.md)
-* [Mariadb](backend/mariadb.md)
-* [OAuth 2 & JWT](backend/oauth2-jwt.md)
-* [Elasticsearch](backend/elasticsearch.md)
-* [Logstash](backend/logstash.md) -->
 
 ### Front-End
 

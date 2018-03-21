@@ -163,15 +163,24 @@ In binary tree each node has **at most** two children.
 
 ### Binary Search Tree
 
-Also called **ordered** or **sorted binary trees**. BST is a binary tree whihc has the following properties:
+Also called **ordered** or **sorted binary trees**. BST is a binary tree which has the following properties:
 
 * The left subtree contains only nodes lesser than root.
 * The right subtree contains only nodes greater than root.
 * The left and right subtree each must be a BST.
 * In normal case, duplicates are excluded.
+
+#### A balanced tree
+
+The tree is balanced if
+
+1. The left and right subtrees' height differ by **at most one**
+2. AND the left subtree is balanced.
+3. AND the right subtree is balanced.
+
 #### Self-balancing binary search tree
 
-Also height-balanced binary search tree. It is a node-based binary search tree that automatically keeps its height small.
+Also height-balanced binary search tree. It is a node-based binary search tree that automatically keeps its height small. AVL tree is al self-balancing BST.
 
 #### Operations
 
